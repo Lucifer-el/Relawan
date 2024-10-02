@@ -14,7 +14,7 @@ class ObatController
     public function index()
     {
         $obats = Obat::all();
-        return view('obat.index', compact('obats'));
+        return view('blade.index', compact('obats'));
     }
 
     /**

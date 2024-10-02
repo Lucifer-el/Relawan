@@ -5,7 +5,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PermintaanController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('intro');
 });
 
 Route::get('/obat', [ObatController::class, 'index'])->name('obat.index');
