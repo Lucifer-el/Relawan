@@ -6,9 +6,11 @@ use App\Models\permintaan;
 use App\Http\Requests\StorepermintaanRequest;
 use App\Http\Requests\UpdatepermintaanRequest;
 use App\Http\Resources\PermintaanResource;
+use App\Models\permintaan_obat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Obats;
+use App\Models\Obat;
+
 
 
 
@@ -27,7 +29,7 @@ class PermintaanController
      */
     public function create()
     {
-        $obats = Obats::all();
+        $obats = Obat::all();
         return view("permintaan.create", compact("obats"));
     }
 
@@ -44,7 +46,7 @@ class PermintaanController
             "jumlah"=> "required"
             ]);
         
-            permintaan::create([
+            permintaan_obat::create([
 
         ]);
     }
@@ -52,7 +54,7 @@ class PermintaanController
     /**
      * Display the specified resource.
      */
-    public function show(permintaan $permintaan)
+    public function show(permintaan_obat $permintaan)
     {
         //
     }
@@ -60,7 +62,7 @@ class PermintaanController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(permintaan $permintaan)
+    public function edit(permintaan_obat $permintaan)
     {
         //
     }
@@ -68,7 +70,7 @@ class PermintaanController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatepermintaanRequest $request, permintaan $permintaan)
+    public function update(UpdatepermintaanRequest $request, permintaan_obat $permintaan)
     {
         //
     }
@@ -76,7 +78,7 @@ class PermintaanController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(permintaan $permintaan)
+    public function destroy(permintaan_obat $permintaan)
     {
         //
     }

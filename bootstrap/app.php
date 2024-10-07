@@ -11,7 +11,19 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        if (! function_exists('asset')) {
+            /**
+             * Generate an asset path for the application.
+             *
+             * @param  string  $path
+             * @param  bool    $secure
+             * @return string
+             */
+            function asset($path, $secure = null)
+            {
+                return app('url')->asset("public/".$path, $secure);
+            }
+        }
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

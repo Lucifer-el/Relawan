@@ -1,8 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\User;
+ 
+use Illuminate\Database\Eloquent\factories\PermintaanObatFactory;
+use App\Models\permintaan_obat;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +16,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        permintaan_obat::factory()->create([
             'nama' => 'Althaf',
-            'kelas' => '10',
+            'kelas' => 10,
             'jurusan' => 'TPL',
             'nama_obat' => 'Bodrex',
-            'jumlah' => '10',
+            'jumlah' => 10,
         ]);
     }
 }

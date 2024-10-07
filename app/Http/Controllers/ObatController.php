@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Obats;
 use App\Http\Requests\StoreObatsRequest;
 use App\Http\Requests\UpdateObatsRequest;
+use App\Models\Obat;
 
 class ObatController
 {
@@ -14,7 +14,7 @@ class ObatController
     public function index()
     {
         $obats = Obat::all();
-        return view('blade.index', compact('obats'));
+        return view('bagian.obat', compact('obats'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ObatController
     /**
      * Display the specified resource.
      */
-    public function show(Obats $obats)
+    public function show(Obat $obats)
     {
         //
     }
@@ -44,7 +44,7 @@ class ObatController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Obats $obats)
+    public function edit(Obat $obats)
     {
         //
     }
@@ -52,7 +52,7 @@ class ObatController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateObatsRequest $request, Obats $obats)
+    public function update(UpdateObatsRequest $request, Obat $obats)
     {
         //
     }
@@ -60,7 +60,7 @@ class ObatController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Obats $obats)
+    public function destroy(Obat $obats)
     {
         //
     }
