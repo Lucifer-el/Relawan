@@ -4,7 +4,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Relawan Neskar Site</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Favicon-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="{{ asset('public/images/logos/Relawan.svg') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,8 +16,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="{{ asset('public/css/jawa.css') }}">
 
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/script.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->

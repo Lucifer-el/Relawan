@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><link rel="stylesheet" href="{{ asset('public/images/Navbar.svg') }}"></a>
+                <a class="navbar-brand" href="#page-top">
+                    <link rel="stylesheet" href="{{ asset('public/images/Navbar.svg') }}"></a>
+                    <link rel="stylesheet" href="{{ asset('css/jawa.css') }}">
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars ms-1"></i>
                 </button>

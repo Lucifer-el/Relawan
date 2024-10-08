@@ -12,9 +12,10 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Data Obat</h2>
                             <p class="item-intro text-muted">Cek obat-obatan disini!</p>
-                            <img class="img-fluid d-block mx-auto" src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
-
-                            <table class="table">
+                            <img class="img-fluid d-block mx-auto"
+                                src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
+                        
+                            <table obats class=" table">
                                 <thead>
                                     <tr>
                                         <th>Id_obat</th>
@@ -22,21 +23,7 @@
                                         <th>Stok</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @if($obats->isNotEmpty())
-                                        @foreach($obats as $obat)
-                                            <tr>
-                                                <td>{{ $obat->id }}</td>
-                                                <td>{{ $obat->nama }}</td>
-                                                <td>{{ $obat->stok }}</td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        <tr>
-                                            <td colspan="3">Tidak ada data obat.</td>
-                                        </tr>
-                                    @endif
-                                </tbody>
+                            
                             </table>
 
                             <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">

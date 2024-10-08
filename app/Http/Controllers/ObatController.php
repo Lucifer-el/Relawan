@@ -12,10 +12,11 @@ class ObatController
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $obats = Obat::all();
-        return view('bagian.obat', compact('obats'));
-    }
+{
+    $obats = Obat::all(); // Ambil semua data obat
+    return view('bagian.obat', compact('obats')); // Kirim ke view
+}
+
 
     /**
      * Show the form for creating a new resource.

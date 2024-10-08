@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" rel="stylesheet" href="{{ asset('public/images/img/team/dimas.jpg') }}" />
+                        <img class="mx-auto rounded-circle" src="{{ asset('images/img/team/dimas.jpg') }}" alt="Dimas" style="width: 250px; height: auto;" />
                             <h4>Dimas Ihsan Pratama</h4>
                             <p class="text-muted">Wakil PMR</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/dimasinst__/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" rel="stylesheet" href="{{ asset('public/images/img/akmala.jpg') }}" />
+                        <img class="mx-auto rounded-circle" src="{{ asset('images/img/team/akmala.jpg') }}" alt="Dimas" style="width: 250px; height: auto;" />
                             <h4>Dean Akmal</h4>
                             <p class="text-muted">Ketua PMR</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/deankml._/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" rel="stylesheet" href="{{ asset('public/images/img/team/Lucifer.jpg') }}"/>
+                        <img class="mx-auto rounded-circle" src="{{ asset('images/img/team/Lucifer.jpg') }}" alt="Dimas" style="width: 250px; height: auto;" />
                             <h4>M.Rahel P. Simbolon</h4>
                             <p class="text-muted">Supporter</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/putra.rahel_/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
