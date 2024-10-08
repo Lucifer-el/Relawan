@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        permintaan_obat::factory()->create([
+        permintaan_obat::create([
             'nama' => 'Althaf',
             'kelas' => 10,
             'jurusan' => 'TPL',

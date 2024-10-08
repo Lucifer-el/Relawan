@@ -1,4 +1,3 @@
-<!-- Portfolio item 1 modal popup-->
 <div class="jasa-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -12,18 +11,35 @@
                             <!-- Project details-->
                             <h2 class="text-uppercase">Data Obat</h2>
                             <p class="item-intro text-muted">Cek obat-obatan disini!</p>
-                            <img class="img-fluid d-block mx-auto"
-                                src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
-                        
-                            <table obats class=" table">
+                            <img class="img-fluid d-block mx-auto" src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
+                            
+                            <!-- Tabel Obat -->
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Id_obat</th>
+                                        <th>Id Obat</th>
                                         <th>Nama Obat</th>
+                                        <th>Jenis Obat</th>
                                         <th>Stok</th>
                                     </tr>
                                 </thead>
-                            
+                                <tbody>
+
+                                    @if($obats->isNotEmpty())
+                                        @foreach($obats as $obat)
+                                            <tr>
+                                                <td>{{ $obat->id_obat }}</td>
+                                                <td>{{ $obat->nama_obat }}</td>
+                                                <td>{{ $obat->jenis_obat }}</td>
+                                                <td>{{ $obat->stok }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="4" class="text-center">Tidak ada data obat.</td>
+                                        </tr>
+                                    @endif
+                                </tbody>
                             </table>
 
                             <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">

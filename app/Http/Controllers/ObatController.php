@@ -13,8 +13,10 @@ class ObatController
      */
     public function index()
 {
-    $obats = Obat::all(); // Ambil semua data obat
-    return view('bagian.obat', compact('obats')); // Kirim ke view
+    $obats = Obat::all();
+
+    // Mengirim data ke view 'bagian.obat'
+    return view('bagian.obat', compact('obats'));
 }
 
 
@@ -37,9 +39,9 @@ class ObatController
     /**
      * Display the specified resource.
      */
-    public function show(Obat $obats)
+    public function show(Obat $obat)   
     {
-        //
+    return view('bagian.obat', compact('obat'));
     }
 
     /**

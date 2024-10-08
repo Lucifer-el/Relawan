@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('id_obat');
             $table->String('nama_obat');
             $table->text('stok');
+            $table->string('jenis_obat');
             $table->timestamps();
         });
     }
