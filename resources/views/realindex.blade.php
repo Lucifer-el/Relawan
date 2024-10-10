@@ -1,6 +1,6 @@
 <head>
     @include('bagian.master') 
-    <link rel="stylesheet" href="{{ asset('css/jawa.css') }}">
+    
 </head>
 
 <body>
@@ -9,20 +9,6 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <style>
-                    header.masthead {
-                        padding-top: 10.5rem;
-                        padding-bottom: 6rem;
-                        text-align: center;
-                        color: #d62828;
-                        background-image: url("../images/Buwok.jpg");
-                        /* Pastikan path relatif benar */
-                        background-repeat: no-repeat;
-                        background-attachment: scroll;
-                        background-position: center center;
-                        background-size: cover;
-                    }
-                </style>
                 <div class="masthead-subheading">Welcome To Relawan Neskar!</div>
                 <div class="masthead-heading text-uppercase">Palang Merah Indonesia Jaya! Jaya! jaya!</div>
             </div>
@@ -38,7 +24,7 @@
             <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4">
     <div class="jasa-item">
-        <a href="{{ route('kontol') }}" class="jasa-link">
+        <a href="{{ route('obat.index') }}" class="jasa-link">
             <div class="jasa-hover">
                 <div class="jasa-hover-content">
                     <i class="fas fa-plus fa-3x"></i>

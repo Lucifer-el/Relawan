@@ -13,17 +13,20 @@ class ObatSeeder extends Seeder
      */
     public function run(): void
     {
-        obat::create([
-            'id_obat' => 100,
-            'nama_obat' => 'Paracetamol',
-            'stok' => '20'
+        // obat::insert([
+        //     'id_obat' => 100,
+        //     'nama_obat' => 'Paracetamol',
+        //     'stok' => '20',
+        //     'jenis_obat' => 'pusing',
             
-        ]);
+        // ]);
 
-        obat::create([
-            'id_obat' => 20,
-            'nama_obat' => 'ashypixiation',
-            'stok' => 30
-        ]);
+        // obat::insert([
+        //     'id_obat' => 20,
+        //     'nama_obat' => 'ashypixiation',
+        //     'stok' => 30,
+        //     'jenis_obat' => 'mual'
+
+        // ]);
     }
 }

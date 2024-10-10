@@ -12,7 +12,6 @@
                             <h2 class="text-uppercase">Data Obat</h2>
                             <p class="item-intro text-muted">Cek obat-obatan disini!</p>
                             <img class="img-fluid d-block mx-auto" src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
-                            
                             <!-- Tabel Obat -->
                             <table class="table">
                                 <thead>
@@ -42,7 +41,7 @@
                                 </tbody>
                             </table>
 
-                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-primary btn-xl text-uppercase" onclick="window.location.href='{{ url('/') }}'" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Kembali
                             </button>
