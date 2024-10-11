@@ -118,6 +118,8 @@ h2 {
 
 /* Tombol login */
 .btn-login {
+    top: 26cap;
+    left: 35cap;
     width: 100%;
     padding: 15px;
     background-color: #596275;
@@ -141,6 +143,45 @@ h2 {
     opacity: 1;
 }
 
+.btn-login {
+  scale: 0.5;
+  padding: 0 50px;
+  width: 160px;
+  height: 64px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 32px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-login:hover {
+  color: black;
+}
+
+.btn-login:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn-login:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
 </style>
 
 </html>
