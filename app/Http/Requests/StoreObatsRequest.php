@@ -11,7 +11,7 @@ class StoreObatsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreObatsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
+                'id_obat' => 'required|string|max:255',
+                'nama_obat' => 'required|string|max:255',
+                'stok' => 'required|integer', // Perbaikan tipe dari 'text' ke 'integer'
+                'jenis_obat' => 'required|string|max:255',
         ];
     }
 }

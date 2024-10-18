@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreObatsRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateObatsRequest;
 use App\Models\Obat;
+use Illuminate\Support\Facades\Gate;
+
 
 class ObatController
 {
@@ -13,11 +15,13 @@ class ObatController
      */
     public function index()
 {
-    $obats = Obat::all();
+    // Mengambil semua data obat
+    $obats = Obat::all(); 
 
-    // Mengirim data ke view 'bagian.obat'
-    return view('bagian.obat', compact('obats'));
+    // Mengirim data obat ke view 'bagian.obat'
+    return view('bagian.obat', compact('obats')); // Ganti 'admin.dashboard' dengan 'bagian.obat'
 }
+
 
 
     /**
@@ -25,46 +29,91 @@ class ObatController
      */
     public function create()
     {
-        //
+        return view('obat.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreObatsRequest $request)
-    {
-        //
-    }
+    public function store(Request $request)
+{
+    // Validasi input form
+    $validatedData = $request->validate([
+        'nama_obat' => 'required|string|max:255',
+        'stok' => 'required|integer', // Mengubah text menjadi integer
+        'jenis_obat' => 'required|string|max:255',
+    ]);
+
+    // Jika validasi sukses, buat data baru di tabel 'obats'
+    Obat::create($validatedData);
+
+    // Redirect ke halaman index dengan pesan sukses
+    return redirect()->route('obat.index')->with('success', 'Obat berhasil ditambahkan.');
+}
+
+
 
     /**
      * Display the specified resource.
      */
     public function show(Obat $obat)   
     {
-    return view('bagian.obat', compact('obat'));
+        return view('obat.show', compact('obat'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Obat $obats)
-    {
-        //
+    public function edit($id) // $id adalah id_obat
+{
+    // Mencari obat berdasarkan id_obat
+    $obat = Obat::findOrFail($id); // Mengambil obat berdasarkan id_obat
+
+    // Jika obat tidak ditemukan, bisa mengembalikan 404
+    if (!$obat) {
+        abort(404, 'Obat not found.');
     }
+
+    // Mengirim data obat ke view edit
+    return view('CRUD.edit', compact('obat'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateObatsRequest $request, Obat $obats)
-    {
-        //
-    }
+    public function update(Request $request, $id_obat)
+{
+    // Validasi data
+    $request->validate([
+        'nama_obat' => 'required|string|max:255',
+        'stok' => 'required|integer',
+        'jenis_obat' => 'required|string|max:255',
+    ]);
+
+    // Mencari dan memperbarui obat
+    $obat = Obat::findOrFail($id_obat); // Mencari obat berdasarkan id_obat
+    $obat->update($request->all()); // Memperbarui data obat
+
+    // Redirect ke index setelah update
+    return redirect()->route('obat.index')->with('success', 'Obat berhasil diperbarui.');
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Obat $obats)
-    {
-        //
+    public function destroy(Obat $obat)
+{
+    // Menggunakan Gate untuk otorisasi
+    if (Gate::denies('delete-obat', $obat)) {
+        abort(403, 'Unauthorized action.');
     }
+
+    // Menghapus obat
+    $obat->delete();
+
+    // Redirect ke halaman index dengan pesan sukses
+    return redirect()->route('obat.index')->with('success', 'Obat berhasil dihapus.');
+}
+
 }

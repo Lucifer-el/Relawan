@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 
 class Obat extends Model
 {
-    use HasFactory;
-    protected $table = 'stock_obat';
-    protected $fillable = ['id_obat', 'nama_obat', 'jenis_obat', 'stok'];
-    
+    protected $table = 'stock_obat'; // Nama tabel
+
+    protected $primaryKey = 'id_obat'; // Menentukan nama kolom primary key
+
+    protected $fillable = ['nama_obat', 'stok', 'jenis_obat'];
 }

@@ -16,10 +16,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Id Obat</th>
                                         <th>Nama Obat</th>
                                         <th>Jenis Obat</th>
                                         <th>Stok</th>
+                                        <th>Aksi</th> <!-- Kolom untuk aksi -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -27,10 +27,12 @@
                                     @if($obats->isNotEmpty())
                                         @foreach($obats as $obat)
                                             <tr>
-                                                <td>{{ $obat->id_obat }}</td>
                                                 <td>{{ $obat->nama_obat }}</td>
                                                 <td>{{ $obat->jenis_obat }}</td>
                                                 <td>{{ $obat->stok }}</td>
+                                                <td>
+                                                    <a href="{{ route('obat.edit', $obat->id_obat) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @else

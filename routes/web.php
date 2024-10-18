@@ -5,6 +5,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Gate;
 
 // Route untuk halaman home
 Route::get('/', function () {
@@ -21,9 +22,17 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Dashboard
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); // Logout
+    Route::resource('obat', ObatController::class);
 });
 
 // Route lainnya (contoh rute untuk ObatController dan PermintaanController)
 Route::get('/obat', [ObatController::class, 'index'])->name('obat.index');
 Route::get('/permintaan/create', [PermintaanController::class, 'create'])->name('permintaan.create');
 Route::post('/permintaan', [PermintaanController::class, 'store'])->name('permintaan.store');
+
+
+Gate::define('update-obat', function ($user, $obat) {
+    return $user->id === $obat->Obat;
+});
+
+
