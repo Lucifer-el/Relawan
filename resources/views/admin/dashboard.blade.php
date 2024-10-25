@@ -21,9 +21,10 @@
             <td>{{ $obat->stok }}</td>
             <td>{{ $obat->jenis_obat }}</td>
             <td>
-                <a href="{{ route('CRUD.edit', $obat->id_obat) }}">
+                <a href="{{ route('obat.edit', $obat->id_obat) }}">
                     <button type="button">Edit</button>
                 </a>
+                
             </td>
         </tr>
         @endforeach

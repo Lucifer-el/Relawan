@@ -75,7 +75,7 @@ class ObatController
     }
 
     // Mengirim data obat ke view edit
-    return view('CRUD.edit', compact('obat'));
+    return view('obat.edit', compact('obat'));
 }
 
 
@@ -102,17 +102,11 @@ class ObatController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Obat $obat)
+    public function destroy($id_obat)
 {
-    // Menggunakan Gate untuk otorisasi
-    if (Gate::denies('delete-obat', $obat)) {
-        abort(403, 'Unauthorized action.');
-    }
-
-    // Menghapus obat
+    $obat = Obat::findOrFail($id_obat);
     $obat->delete();
 
-    // Redirect ke halaman index dengan pesan sukses
     return redirect()->route('obat.index')->with('success', 'Obat berhasil dihapus.');
 }
 
