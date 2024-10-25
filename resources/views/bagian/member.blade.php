@@ -1,7 +1,7 @@
 <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Para Petinggi</h2>
+                    <h2 class="section-heading text-uppercase">Struktur Organisasi</h2>
                     <h3 class="section-subheading text-muted">2023/2024</h3>
                 </div>
                 <div class="row">

@@ -110,4 +110,36 @@ class ObatController
     return redirect()->route('obat.index')->with('success', 'Obat berhasil dihapus.');
 }
 
+public function createRequest()
+{
+    // Ambil semua data obat dari database
+    $obats = Obat::all();
+
+    // Tampilkan view form permintaan obat
+    return view('bagian.permintaan', compact('obats'));
+}
+
+public function storeRequest(Request $request)
+{
+    // Validasi data permintaan
+    $request->validate([
+        'nama_obat' => 'required|exists:stock_obat,id_obat',
+        'jumlah' => 'required|integer|min:1',
+    ]);
+
+    // Cari obat berdasarkan ID
+    $obat = Obat::findOrFail($request->nama_obat);
+
+    // Periksa apakah stok mencukupi
+    if ($obat->stok < $request->jumlah) {
+        return redirect()->back()->withErrors(['message' => 'Stok obat tidak mencukupi']);
+    }
+
+    // Kurangi stok obat
+    $obat->stok -= $request->jumlah;
+    $obat->save();
+
+    return redirect()->route('permintaan-obat.create')->with('success', 'Permintaan obat berhasil diajukan, stok telah diperbarui.');
+}
+
 }

@@ -24,13 +24,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @if($obats->isNotEmpty())
                                         @foreach($obats as $obat)
                                             <tr>
                                                 <td>{{ $obat->nama_obat }}</td>
                                                 <td>{{ $obat->jenis_obat }}</td>
                                                 <td>{{ $obat->stok }}</td>
+                                                <td>
+                                                    @can('update-obat', $obat)
+                                                        <button
+                                                            onclick="window.location.href='{{ route('obat.edit', $obat->id_obat) }}'">Edit</button>
+                                                        <form action="{{ route('obat.destroy', $obat->id_obat) }}" method="POST"
+                                                            style="display:inline-block;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit">Delete</button>
+                                                        </form>
+                                                    @endcan
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -40,25 +50,11 @@
                                         </tr>
                                     @endif
                                 </tbody>
-                            </table>
-                            <form action="{{ route('obat.edit', $obat->id_obat) }}" method="GET"
-                                style="display:inline;">
-                                @csrf
-                                <button type="submit" class="btn btn-warning btn-sm">Edit</button>
-                            </form>
-                            <form action="{{ route('obat.destroy', $obat->id_obat) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Apakah Anda yakin ingin menghapus obat ini?')">Delete</button>
-                            </form>
-
-                            <button class="btn btn-primary btn-xl text-uppercase"
-                                onclick="window.location.href='{{ url('/') }}'" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Kembali
-                            </button>
+                                <button class="btn btn-primary btn-xl text-uppercase"
+                                    onclick="window.location.href='{{ url('/') }}'" type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Kembali
+                                </button>
                         </div>
                     </div>
                 </div>

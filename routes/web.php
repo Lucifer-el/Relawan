@@ -35,4 +35,7 @@ Gate::define('update-obat', function ($user, $obat) {
     return $user->id === $obat->Obat;
 });
 
+//permintaan obat
+Route::get('/permintaan-obat', [ObatController::class, 'createRequest'])->name('permintaan-obat.create');
+Route::post('/permintaan-obat', [ObatController::class, 'storeRequest'])->name('permintaan-obat.store');
 

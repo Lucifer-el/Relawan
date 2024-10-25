@@ -31,5 +31,5 @@
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
-<a href="{{ route('obat.index') }}">Kembali ke daftar obat</a>
+<a href="{{ route('dashboard') }}">Kembali ke daftar obat</a>
 

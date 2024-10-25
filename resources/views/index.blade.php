@@ -22,7 +22,8 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><link rel="stylesheet" href="{{ asset('public/images/Navbar.svg') }}"></a>
+                <a class="navbar-brand" href="#page-top">
+                    <img rel="stylesheet" href="{{ asset('public/images/Navbar.svg') }}"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars ms-1"></i>
                 </button>
@@ -90,7 +91,7 @@
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Para Petinggi</h2>
+                    <h2 class="section-heading text-uppercase">Struktur Organisasi</h2>
                     <h3 class="section-subheading text-muted">2023/2024</h3>
                 </div>
                 <div class="row">
