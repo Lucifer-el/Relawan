@@ -48,7 +48,7 @@ class ObatController
     Obat::create($validatedData);
 
     // Redirect ke halaman index dengan pesan sukses
-    return redirect()->route('obat.index')->with('success', 'Obat berhasil ditambahkan.');
+    return redirect()->route('dashboard')->with('success', 'Obat berhasil ditambahkan.');
 }
 
 

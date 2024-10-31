@@ -10,6 +10,10 @@ use App\Models\permintaan_obat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Obat;
+use Illuminate\Support\Facades\Notification; // Import Notification facade
+use App\Mail\PermintaanObatMail;
+use App\Notifications\PermintaanObatNotification; // Make sure to import your notification class
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -37,19 +41,46 @@ class PermintaanController
      * Store a newly created resource in storage.
      */
     public function store(StorepermintaanRequest $request)
-    {
-        $request->validate([
-            "nama"=> "required",
-            "kelas"=> "required",
-            "jurusan"=> "required",
-            "nama_obat"=> "required",
-            "jumlah"=> "required"
-            ]);
-        
-            permintaan_obat::create([
+{
+    // Validate incoming request
+    $request->validate([
+        'nama' => 'required',
+        'kelas' => 'required',
+        'jurusan' => 'required',
+        'nama_obat' => 'required',
+        'jumlah' => 'required|integer|min:1', // Ensure jumlah is an integer and at least 1
+    ]);
 
-        ]);
-    }
+    // Create the medicine request record
+    $permintaan = permintaan_obat::create([
+        'nama' => $request->nama,
+        'kelas' => $request->kelas,
+        'jurusan' => $request->jurusan,
+        'nama_obat' => $request->nama_obat,
+        'jumlah' => $request->jumlah,
+    ]);
+
+    // Prepare data for notification and mail
+    $data = [
+        'nama_obat' => $request->nama_obat,
+        'jumlah' => $request->jumlah,
+        'nama' => $request->nama,
+        'kelas' => $request->kelas,
+        'jurusan' => $request->jurusan,
+    ];
+
+    // Send notification
+    $adminEmail = 'putrarahel241@gmail.com'; 
+    Notification::route('mail', $adminEmail)
+                ->notify(new PermintaanObatNotification($data));
+    
+    // Send email
+    Mail::to($adminEmail)->send(new PermintaanObatMail($data));
+
+    // Redirect back with a success message
+    return redirect()->back()->with('success', 'Permintaan obat berhasil dikirim!');
+}
+
 
     /**
      * Display the specified resource.
