@@ -107,7 +107,7 @@ class ObatController
     $obat = Obat::findOrFail($id_obat);
     $obat->delete();
 
-    return redirect()->route('obat.index')->with('success', 'Obat berhasil dihapus.');
+    return redirect()->route('dashboard')->with('success', 'Obat berhasil dihapus.');
 }
 
 public function createRequest()

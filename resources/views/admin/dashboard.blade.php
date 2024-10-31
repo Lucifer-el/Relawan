@@ -21,10 +21,17 @@
             <td>{{ $obat->stok }}</td>
             <td>{{ $obat->jenis_obat }}</td>
             <td>
+                <!-- Edit Button -->
                 <a href="{{ route('obat.edit', $obat->id_obat) }}">
                     <button type="button">Edit</button>
                 </a>
-                
+
+                <!-- Delete Button -->
+                <form action="{{ route('obat.destroy', $obat->id_obat) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                </form>
             </td>
         </tr>
         @endforeach
