@@ -28,7 +28,7 @@
         <input type="text" class="form-control" id="jenis_obat" name="jenis_obat" value="{{ $obat->jenis_obat }}" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit"  class="btn btn-primary">Update</button>
 </form>
 
 <a href="{{ route('dashboard') }}">Kembali ke daftar obat</a>

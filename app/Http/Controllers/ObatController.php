@@ -96,7 +96,7 @@ class ObatController
     $obat->update($request->all()); // Memperbarui data obat
 
     // Redirect ke index setelah update
-    return redirect()->route('obat.index')->with('success', 'Obat berhasil diperbarui.');
+    return redirect()->route('dashboard')->with('success', 'Obat berhasil diperbarui.');
 }
 
     /**

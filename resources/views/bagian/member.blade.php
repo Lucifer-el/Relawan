@@ -12,7 +12,7 @@
                             <p class="text-muted">Wakil PMR</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/dimasinst__/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100060972193168" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/dimas-ihsan-pratama-169b95301/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -21,8 +21,8 @@
                             <h4>Dean Akmal</h4>
                             <p class="text-muted">Ketua PMR</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/deankml._/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/friends/suggestions/?profile_id=100024903586798" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/dean.akmal.9" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/dean-akmal-a64a93320/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -32,7 +32,7 @@
                             <p class="text-muted">Supporter</p>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/putra.rahel_/?hl=en" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100081623375181" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                                                                                                                                  
                         </div>
                     </div>

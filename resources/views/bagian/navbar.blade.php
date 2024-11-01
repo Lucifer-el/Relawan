@@ -6,8 +6,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#jasa">Jasa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Petinggi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#jasa">Kegiatan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Struktur</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>

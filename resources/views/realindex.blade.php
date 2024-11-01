@@ -18,8 +18,8 @@
     <section class="page-section bg-light" id="jasa">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Jasa</h2>
-            <h3 class="section-subheading text-muted">Berikut adalah beberapa jasa kami!</h3>
+            <h2 class="section-heading text-uppercase">Kegiatan Kami</h2>
+            <h3 class="section-subheading text-muted">Berikut adalah beberapa Kegiatan kami!</h3>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-4 col-sm-6 mb-4 mx-2"> <!-- Add mx-2 for horizontal margin -->
