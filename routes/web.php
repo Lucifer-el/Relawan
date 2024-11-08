@@ -5,11 +5,12 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Gate;
 
 // Route untuk halaman home
 Route::get('/', function () {
-    return view('realindex');
+    return view('welcome');
 });
 
 // Route untuk login (hanya dapat diakses oleh tamu yang belum login)
@@ -23,12 +24,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // Dashboard
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); // Logout
     Route::resource('obat', ObatController::class);
+    Route::post('/obat/create', [ObatController::class, 'create'])->name('obat.create');
 });
 
 // Route lainnya (contoh rute untuk ObatController dan PermintaanController)
 Route::get('/obat', [ObatController::class, 'index'])->name('obat.index');
 Route::get('/permintaan/create', [PermintaanController::class, 'create'])->name('permintaan.create');
 Route::post('/permintaan', [PermintaanController::class, 'store'])->name('permintaan.store');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Gate::define('update-obat', function ($user, $obat) {

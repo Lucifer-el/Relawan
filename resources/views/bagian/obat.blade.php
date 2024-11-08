@@ -1,64 +1,55 @@
-<div class="jasa-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal">
-                <img src="{{ asset('public/images/img/close-icon.svg') }}" />
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Project details-->
-                            <h2 class="text-uppercase">Data Obat</h2>
-                            <p class="item-intro text-muted">Cek obat-obatan disini!</p>
-                            <img class="img-fluid d-block mx-auto"
-                                src="{{ asset('public/images/img/portfolio/Obat1.jpg') }}" />
-                            <!-- Tabel Obat -->
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Obat</th>
-                                        <th>Jenis Obat</th>
-                                        <th>Stok</th>
-                                        <th>aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if($obats->isNotEmpty())
-                                        @foreach($obats as $obat)
-                                            <tr>
-                                                <td>{{ $obat->nama_obat }}</td>
-                                                <td>{{ $obat->jenis_obat }}</td>
-                                                <td>{{ $obat->stok }}</td>
-                                                <td>
-                                                    @can('update-obat', $obat)
-                                                        <button
-                                                            onclick="window.location.href='{{ route('obat.edit', $obat->id_obat) }}'">Edit</button>
-                                                        <form action="{{ route('obat.destroy', $obat->id_obat) }}" method="POST"
-                                                            style="display:inline-block;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit">Delete</button>
-                                                        </form>
-                                                    @endcan
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        <tr>
-                                            <td colspan="4" class="text-center">Tidak ada data obat.</td>
-                                        </tr>
-                                    @endif
-                                </tbody>
-                                <button class="btn btn-primary btn-xl text-uppercase"
-                                    onclick="window.location.href='{{ url('/') }}'" type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    Kembali
-                                </button>
-                        </div>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Obat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container"> 
+        <div class="card">
+            <div class="card-header text-center">
+                Data Obat Relawan Neskar
+            </div>                        
+            @if (session('success'))
+                <div>{{ session('success')}}</div>
+            @endif
+            <div class="card-body">
+                <table class="table">
+                    <th>id_obat</th>
+                    <th>nama_obat</th>
+                    <th>stok</th>
+                    <th>jenis_obat</th>
+                    <tbody>
+                    @if($obats->isNotEmpty())
+                        @foreach($obats as $obat)
+                            <tr>
+                                <td>{{ $obat->id_obat }}</td>
+                                <td>{{ $obat->nama_obat }}</td>
+                                <td>{{ $obat->stok }}</td>
+                                <td>{{ $obat->jenis_obat }}</td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4" class="text-center">Tidak ada data obat.</td>
+                        </tr>
+                    @endif
+                    </tbody>
+                </table>
+                <button class="btn btn-primary btn-xl text-uppercase"
+                    onclick="window.location.href='{{ url('/home') }}'" type="button">
+                    <i class="fas fa-xmark me-1"></i>
+                    Kembali
+                </button>
             </div>
         </div>
     </div>
-</div>
+</body>
+<script>
+    .body{
+        
+    }
+</script>
+</html>

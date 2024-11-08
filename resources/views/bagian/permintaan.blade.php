@@ -1,9 +1,27 @@
+<<<<<<< HEAD
 <div class="container">
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/permintaan.css') }}">
+</head>
+<body>
+    <div class="container">
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+>>>>>>> 3f00df1 (nambahin apa gatau)
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -11,8 +29,22 @@
         </div>
     @endif
 
-    <h2>Form Permintaan Obat</h2>
+<div class="container">
+    <div class="content">
+        <div class="login-box">
+        <h2>Form Permintaan Obat</h2>
+            <form action="{{ route('permintaan-obat.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="nama_obat">Nama Obat</label>
+                    <select name="nama_obat" id="nama_obat" class="form-control" required>
+                        @foreach($obats as $obat)
+                            <option value="{{ $obat->id_obat }}">{{ $obat->nama_obat }} (Stok: {{ $obat->stok }})</option>
+                        @endforeach
+                    </select>
+                </div>
 
+<<<<<<< HEAD
     <!-- Formspree integration -->
     <form action="https://formspree.io/f/xanyeqvw" method="POST">
         <!-- Remove @csrf for Formspree -->
@@ -72,3 +104,37 @@
     // Initialize the hidden field with the default selected option
     window.onload = updateObatName;
 </script>
+=======
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Permintaan</label>
+                    <input type="number" name="jumlah" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Kirim Permintaan</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content .login-box {
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+</script>
+</body>
+</html>
+>>>>>>> 3f00df1 (nambahin apa gatau)

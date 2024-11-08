@@ -10,30 +10,30 @@
 
 <body>
     <div class="overlay"></div> <!-- Overlay yang menjadi background gambar -->
-    <div class="content">
-        <div class="login-container">
-            <div class="login-box">
-                <h2>Welcome!</h2>
-                <form action="{{ route('login-proses') }}" method="POST">
-                    @csrf
-                    <div class="input-group">
-                        <label for="username">
-                            <i class="fa fa-user"></i>
-                        </label>
-                        <input type="text" id="username" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">
-                            <i class="fa fa-lock"></i>
-                        </label>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
-                    </div>
+        <div class="content">
+            <div class="login-container">
+                <div class="login-box">
+                    <h2>Welcome!</h2>
+                    <form action="{{ route('login-proses') }}" method="POST">
+                        @csrf
+                        <div class="input-group">
+                            <label for="username">
+                                <i class="fa fa-user"></i>
+                            </label>
+                            <input type="text" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">
+                                <i class="fa fa-lock"></i>
+                            </label>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
 
-                    <button type="submit" class="btn-login">LOGIN</button>
-                </form>
+                        <button type="submit" class="btn-login">LOGIN</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 <style>
@@ -65,7 +65,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparansi latar belakang untuk konten di atas gambar */
+    background-color: rgba(255, 0, 0, 0.5); /* Transparansi latar belakang untuk konten di atas gambar */
 }
 
 /* Container untuk login */
@@ -79,10 +79,10 @@ body {
 
 /* Box login */
 .login-box {
-    background-color: #fff;
-    padding: 50px;
+    background-color: #ffffffe8;
+    padding: 60px;
     border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 400px;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -91,7 +91,7 @@ body {
 /* Pengaturan teks */
 h2 {
     font-size: 2.2em;
-    color: #2f3640;
+    color: #fe0000;
     margin-bottom: 40px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -108,8 +108,6 @@ h2 {
     padding: 15px;
     border: none;
     border-radius: 10px;
-    background-color: #353b48;
-    color: #fff;
     font-size: 1.1em;
     outline: none;
     font-weight: 500;
@@ -117,71 +115,28 @@ h2 {
 }
 
 /* Tombol login */
-.btn-login {
-    top: 26cap;
-    left: 35cap;
-    width: 100%;
-    padding: 15px;
-    background-color: #596275;
+.btn-login{
+    padding: 15px 40px;
+    background-color: #ff7070;
+    color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
-    color: #fff;
+    border-radius: 32px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin: 0 10px; /* Jarak antara tombol */
 }
 
-.btn-login:hover {
-    background-color: #404a59;
+.btn-login:hover{
+    background-color: #fe0000;
 }
-
 /* Placeholder styling */
 ::placeholder {
     color: #dcdde1;
     opacity: 1;
 }
 
-.btn-login {
-  scale: 0.5;
-  padding: 0 50px;
-  width: 160px;
-  height: 64px;
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 32px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.btn-login:hover {
-  color: black;
-}
-
-.btn-login:after {
-  content: "";
-  background: white;
-  position: absolute;
-  z-index: -1;
-  left: -20%;
-  right: -20%;
-  top: 0;
-  bottom: 0;
-  transform: skewX(-45deg) scale(0, 1);
-  transition: all 0.5s;
-}
-
-.btn-login:hover:after {
-  transform: skewX(-45deg) scale(1, 1);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
 </style>
 
 </html>

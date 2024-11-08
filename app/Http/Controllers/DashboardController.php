@@ -21,4 +21,5 @@ class DashboardController extends Controller
         // Mengirim data ke view admin.dashboard
         return view('admin.dashboard', compact('obats'));
     }
+ 
 }
