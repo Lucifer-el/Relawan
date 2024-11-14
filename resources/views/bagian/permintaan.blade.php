@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-<div class="container">
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +8,11 @@
 </head>
 <body>
     <div class="container">
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
->>>>>>> 3f00df1 (nambahin apa gatau)
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -43,8 +34,6 @@
                         @endforeach
                     </select>
                 </div>
-
-<<<<<<< HEAD
     <!-- Formspree integration -->
     <form action="https://formspree.io/f/xanyeqvw" method="POST">
         <!-- Remove @csrf for Formspree -->
@@ -104,19 +93,8 @@
     // Initialize the hidden field with the default selected option
     window.onload = updateObatName;
 </script>
-=======
-                <div class="form-group">
-                    <label for="jumlah">Jumlah Permintaan</label>
-                    <input type="number" name="jumlah" class="form-control" required>
-                </div>
 
-                <button type="submit" class="btn btn-primary mt-3">Kirim Permintaan</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script>
+<style>
 
 * {
     margin: 0;
@@ -134,7 +112,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-</script>
+</style>
 </body>
 </html>
->>>>>>> 3f00df1 (nambahin apa gatau)
