@@ -39,7 +39,7 @@
                         @endif
                         </tbody>
                     </table>
-                    <button class="btn btn-primary btn-xl text-uppercase"
+                    <button class="btn btn-danger btn-xl text-uppercase"
                         onclick="window.location.href='{{ url('/home') }}'" type="button">
                         <i class="fas fa-xmark me-1"></i>
                         Kembali
@@ -52,23 +52,22 @@
 <style>
 body {
     background-image: url('{{ asset('images/wkwk.jpg') }}');
+    font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    font-family: 'Arial', sans-serif;
+    z-index: -1;  /* Di belakang form login */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .card{
-    margin: auto;
-    width: 80%;
+    width: 100%;
+    max-width: 600px;
+    margin: 150px auto;
+    padding: 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
