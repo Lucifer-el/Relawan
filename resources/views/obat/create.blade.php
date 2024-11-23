@@ -50,7 +50,9 @@
                         </div>
                         
                         <button type="submit" class="btn btn-danger">Simpan</button>
+                        <a href="{{ route('dashboard') }}" class="btn btn-primary">Kembali</a>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -58,7 +60,7 @@
 </body>
 <style>
 body {
-    background-image: url('{{ asset('images/wkwk.jpg') }}');
+    background-image: url('{{ asset('images/relawan.jpg') }}');
     background-size: cover;
     background-position: center;
     position: fixed;  /* Agar background mengikuti seluruh layar */

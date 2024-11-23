@@ -13,14 +13,18 @@ class ObatController
     /**
      * Display a listing of the resource.
      */
-    public function index()
-{
-    // Mengambil semua data obat
-    $obats = Obat::all(); 
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+        $obats = Obat::when($search, function($query, $search) {
+            return $query->where('nama_obat', 'like', "%{$search}%")
+                         ->orWhere('stok', 'like', "%{$search}%")
+                         ->orWhere('jenis_obat', 'like', "%{$search}%");
+        })->get();
 
-    // Mengirim data obat ke view 'bagian.obat'
-    return view('bagian.obat', compact('obats')); // Ganti 'admin.dashboard' dengan 'bagian.obat'
-}
+        return view('bagian.obat', compact('obats', 'search'));
+    }
+
 
 
 

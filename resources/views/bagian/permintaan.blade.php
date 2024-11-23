@@ -93,10 +93,10 @@
                         <input type="number" name="jumlah" class="form-control" required>
                     </div>
 
-                    <input type="hidden" name="_replyto" value="rani300807@gmail.com">
+                    <input type="hidden" name="_replyto" value="@example.com">
 
                     <button type="submit" class="btn btn-danger">Kirim Permintaan</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location='{{ url()->previous() }}'">Kembali</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location='{{ route('home') }}'">Kembali</button>
                 </form>            
             </div>
         </div>

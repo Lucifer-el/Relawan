@@ -10,15 +10,19 @@
     <div class="container">
         <div class="content">
             <div class="card">
-                <div class="card-header text-center">
-                    Data Obat Relawan Neskar
-                </div>                        
+                <h4 class="text-center">Data Obat Relawan Neskar</h4>
+                <form action="{{ route('obat.index') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" value="{{ $search }}" placeholder="Search obat...">
+                        <button class="btn btn-danger">Search</button>
+                    </div>
+                </form>
+            
                 @if (session('success'))
                     <div>{{ session('success')}}</div>
                 @endif
                 <div class="card-body">
                     <table class="table">
-                        <th>id_obat</th>
                         <th>nama_obat</th>
                         <th>stok</th>
                         <th>jenis_obat</th>
@@ -26,7 +30,6 @@
                         @if($obats->isNotEmpty())
                             @foreach($obats as $obat)
                                 <tr>
-                                    <td>{{ $obat->id_obat }}</td>
                                     <td>{{ $obat->nama_obat }}</td>
                                     <td>{{ $obat->stok }}</td>
                                     <td>{{ $obat->jenis_obat }}</td>
@@ -51,7 +54,7 @@
 </body>
 <style>
 body {
-    background-image: url('{{ asset('images/wkwk.jpg') }}');
+    background-image: url('{{ asset('images/relawan.jpg') }}');
     font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
@@ -65,7 +68,7 @@ body {
 
 .card{
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     margin: 150px auto;
     padding: 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);

@@ -45,7 +45,8 @@
                         </div>
 
                         <!-- Menambahkan margin-top pada tombol -->
-                        <button type="submit" class="btn btn-danger mt-3">Update</button>
+                        <button type="submit" class="btn btn-danger">Update</button>
+                        <a href="{{ route('dashboard') }}" class="btn btn-primary">Kembali</a>
                     </form>
                 </div>
             </div>

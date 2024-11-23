@@ -22,7 +22,6 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped">
                                     <thead>
-                                            <th>id_obat</th>
                                             <th>Nama Obat</th>
                                             <th>Stok</th>
                                             <th>Jenis Obat</th>
@@ -31,7 +30,6 @@
                                     <tbody>
                                         @foreach ($obats as $obat)
                                         <tr>
-                                            <td>{{ $obat->id_obat }}</td>
                                             <td>{{ $obat->nama_obat }}</td>
                                             <td>{{ $obat->stok }}</td>
                                             <td>{{ $obat->jenis_obat }}</td>
