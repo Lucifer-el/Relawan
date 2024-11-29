@@ -28,16 +28,30 @@
                                             <th>Aksi</th>
                                     </thead>
                                     <tbody>
+                                        @if($obats->isNotEmpty())
                                         @foreach ($obats as $obat)
                                         <tr>
-                                            <td>{{ $obat->nama_obat }}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#obatModal" 
+                                                   data-nama="{{ $obat->nama_obat }}"
+                                                   data-definisi="{{ $obat->definisi }}"
+                                                   data-kegunaan="{{ $obat->kegunaan }}">
+                                                   {{ $obat->nama_obat }}
+                                                </a>
+                                            </td>
                                             <td>{{ $obat->stok }}</td>
                                             <td>{{ $obat->jenis_obat }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                 <form action="{{ route('obat.edit', $obat->id_obat) }}" method="GET">
-                                                    <button type="submit" class="btn btn-sm btn-primary">Edit</button>
-                                                </form>
+                                            @csrf
+                                            @method('PUT') <!-- Menandakan bahwa ini adalah request PUT -->
+                                            <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+</form>
+
+</form>
+
+</form>
                                                     <form action="{{ route('obat.destroy', $obat->id_obat) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -47,7 +61,13 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        @else
+                                           <tr>
+                                                <td colspan="3" class="text-center">Tidak ada data obat.</td>
+                                            </tr>
+                                        @endif
                                     </tbody>
+                                    
                                 </table>
                             </div>
                                 <form method="POST" action="{{ route('logout') }}">
@@ -59,6 +79,27 @@
                 </div>
             </div>
         </div>
+            <!-- Modal untuk menampilkan detail obat -->
+    <div class="modal fade" id="obatModal" tabindex="-1" aria-labelledby="obatModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="obatModalLabel">Detail Obat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Definisi:</h6>
+                    <p id="definisi"></p>
+                    <h6>Kegunaan:</h6>
+                    <p id="kegunaan"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 <style>
@@ -109,4 +150,24 @@ body {
     padding-top: 30px;
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+<script>
+    // JavaScript untuk mengisi modal dengan data obat yang diklik
+    var obatModal = document.getElementById('obatModal');
+    obatModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var namaObat = button.getAttribute('data-nama');
+        var definisi = button.getAttribute('data-definisi');
+        var kegunaan = button.getAttribute('data-kegunaan');
+
+        var modalTitle = obatModal.querySelector('.modal-title');
+        var modalDefinisi = obatModal.querySelector('#definisi');
+        var modalKegunaan = obatModal.querySelector('#kegunaan');
+
+        modalTitle.textContent = 'Detail Obat: ' + namaObat;
+        modalDefinisi.textContent = definisi;
+        modalKegunaan.textContent = kegunaan;
+    });
+</script>
 </html>

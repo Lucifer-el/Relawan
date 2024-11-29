@@ -13,13 +13,12 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil semua data dari model Obat
         $obats = Obat::all();
-
-        // Mengirim data ke view admin.dashboard
-        return view('admin.dashboard', compact('obats'));
+    return view('admin.dashboard', compact('obats'));
     }
+
+    
  
 }

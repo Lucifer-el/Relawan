@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateObatsRequest;
 use App\Models\Obat;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 
 
 class ObatController
@@ -16,14 +17,14 @@ class ObatController
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $obats = Obat::when($search, function($query, $search) {
-            return $query->where('nama_obat', 'like', "%{$search}%")
-                         ->orWhere('stok', 'like', "%{$search}%")
-                         ->orWhere('jenis_obat', 'like', "%{$search}%");
-        })->get();
-
+        
+        $obats = Obat::where('nama_obat', 'LIKE', '%' . $search . '%')
+                    ->orWhere('jenis_obat', 'LIKE', '%' . $search . '%')
+                    ->get();
+    
         return view('bagian.obat', compact('obats', 'search'));
     }
+    
 
 
 
@@ -46,6 +47,8 @@ class ObatController
         'nama_obat' => 'required|string|max:255',
         'stok' => 'required|integer', // Mengubah text menjadi integer
         'jenis_obat' => 'required|string|max:255',
+        'definisi' => 'required',
+        'kegunaan' => 'required',
     ]);
 
     // Jika validasi sukses, buat data baru di tabel 'obats'
@@ -68,40 +71,59 @@ class ObatController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id) // $id adalah id_obat
-{
-    // Mencari obat berdasarkan id_obat
-    $obat = Obat::findOrFail($id); // Mengambil obat berdasarkan id_obat
-
-    // Jika obat tidak ditemukan, bisa mengembalikan 404
-    if (!$obat) {
-        abort(404, 'Obat not found.');
+    public function edit($id_obat)
+    {
+        // Menggunakan Eloquent untuk mencari data obat berdasarkan id_obat
+        $obat = Obat::find($id_obat);
+    
+        // Jika data obat tidak ditemukan, abort 404
+        if (!$obat) {
+            abort(404);
+        }
+    
+        // Tampilkan form edit dengan data obat yang ditemukan
+        return view('obat.edit', compact('obat'));
     }
-
-    // Mengirim data obat ke view edit
-    return view('obat.edit', compact('obat'));
-}
+    
 
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id_obat)
+
 {
-    // Validasi data
-    $request->validate([
+
+    // Validasi input
+
+    $validatedData = $request->validate([
         'nama_obat' => 'required|string|max:255',
         'stok' => 'required|integer',
         'jenis_obat' => 'required|string|max:255',
+        'definisi' => 'required',
+        'kegunaan' => 'required',
     ]);
 
-    // Mencari dan memperbarui obat
-    $obat = Obat::findOrFail($id_obat); // Mencari obat berdasarkan id_obat
-    $obat->update($request->all()); // Memperbarui data obat
 
-    // Redirect ke index setelah update
+
+    // Cari obat berdasarkan id_obat
+
+    $obat = Obat::findOrFail($id_obat);
+
+
+
+    // Update data obat
+
+    $obat->update($validatedData);
+
+
+
+    // Redirect ke halaman dashboard dengan pesan sukses
+
     return redirect()->route('dashboard')->with('success', 'Obat berhasil diperbarui.');
+
 }
+
 
     /**
      * Remove the specified resource from storage.

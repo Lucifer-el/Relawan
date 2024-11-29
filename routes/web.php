@@ -25,6 +25,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout'); // Logout
     Route::resource('obat', ObatController::class);
     Route::post('/obat/create', [ObatController::class, 'create'])->name('obat.create');
+    Route::get('/obat/{id_obat}/edit', [ObatController::class, 'edit'])->name('obat.edit');
+Route::put('/obat/{id_obat}', [ObatController::class, 'update'])->name('obat.update');
+    Route::delete('/obat/destroy/{id_obat}', [ObatController::class, 'destroy'])->name('obat.destroy');
+
 });
 
 // Route lainnya (contoh rute untuk ObatController dan PermintaanController)
@@ -41,4 +45,3 @@ Gate::define('update-obat', function ($user, $obat) {
 //permintaan obat
 Route::get('/permintaan-obat', [ObatController::class, 'createRequest'])->name('permintaan-obat.create');
 Route::post('/permintaan-obat', [ObatController::class, 'storeRequest'])->name('permintaan-obat.store');
-

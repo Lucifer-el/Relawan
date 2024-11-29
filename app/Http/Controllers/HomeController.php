@@ -10,6 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('realindex');
+        return view('obat.realindex');
     }
 }

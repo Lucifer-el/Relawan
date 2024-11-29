@@ -48,6 +48,25 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <!-- Input Definisi Obat -->
+                        <div class="mb-3">
+                            <label for="definisi" class="form-label">Definisi Obat</label>
+                            <textarea name="definisi" class="form-control" id="definisi" placeholder="Masukkan definisi obat">{{ old('definisi') }}</textarea>
+                            @error('definisi')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
+                        <!-- Input Kegunaan Obat -->
+                        <div class="mb-3">
+                            <label for="kegunaan" class="form-label">Kegunaan Obat</label>
+                            <textarea name="kegunaan" class="form-control" id="kegunaan" placeholder="Masukkan kegunaan obat">{{ old('kegunaan') }}</textarea>
+                            @error('kegunaan')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         
                         <button type="submit" class="btn btn-danger">Simpan</button>
                         <a href="{{ route('dashboard') }}" class="btn btn-primary">Kembali</a>

@@ -10,5 +10,11 @@ class Obat extends Model
 
     protected $primaryKey = 'id_obat'; // Menentukan nama kolom primary key
 
-    protected $fillable = ['nama_obat', 'stok', 'jenis_obat'];
+    protected $fillable = [
+        'nama_obat',
+        'stok',
+        'jenis_obat',
+        'definisi',  // Add these fields
+        'kegunaan',
+    ];
 }

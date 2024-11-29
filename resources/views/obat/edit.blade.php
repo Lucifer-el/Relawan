@@ -37,11 +37,28 @@
 
                         <div class="mb-3">
                             <label for="jenis_obat" class="form-label">Jenis Obat</label>
-                            <select class="form-control" id="jenis_obat" name="jenis_obat" value="{{ $obat->jenis_obat }}" required>
-                                <option value="" disabled selected>Pilih jenis obat</option>
-                                <option value="Obat Batuk">Obat Batuk</option>
-                                <option value="Obat Pusing">Obat Pusing</option>
+                            <select class="form-control" id="jenis_obat" name="jenis_obat" required>
+                                <option value="" disabled>Pilih jenis obat</option>
+                                <option value="Obat Batuk" {{ $obat->jenis_obat == 'Obat Batuk' ? 'selected' : '' }}>Obat Batuk</option>
+                                <option value="Obat Pusing" {{ $obat->jenis_obat == 'Obat Pusing' ? 'selected' : '' }}>Obat Pusing</option>
                             </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="definisi" class="form-label">Definisi Obat</label>
+                            <input type="text" name="definisi" value="{{ $obat->definisi }}" class="form-control" id="definisi" required>
+                            @error('definisi')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
+                        <!-- Input Kegunaan Obat -->
+                        <div class="mb-3">
+                            <label for="kegunaan" class="form-label">Kegunaan Obat</label>
+                            <input type="text" name="kegunaan" value="{{ $obat->kegunaan }}" class="form-control" id="kegunaan" required>
+                            @error('kegunaan')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!-- Menambahkan margin-top pada tombol -->
